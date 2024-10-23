@@ -1,6 +1,6 @@
 import { Model, DataTypes } from 'sequelize';
-import db from '../db/connection'; // Ajusta la ruta a tu archivo de base de datos
-import Persona from './persona'; // Ajusta la ruta a tu modelo Persona
+import db from '../db/connection'; 
+import Persona from './persona'; 
 
 
 // Define el modelo Alumno
@@ -13,10 +13,10 @@ const Alumno = db.define('Alumno', {
         type: DataTypes.INTEGER,
         allowNull: true,
     },
-    // Agrega otros atributos según sea necesario
+    // define el nombre de la tabla y los timestamps
 }, {
     tableName: 'alumnos',
-    timestamps: false,
+    timestamps: true,
 });
 
 // Establece la relación
