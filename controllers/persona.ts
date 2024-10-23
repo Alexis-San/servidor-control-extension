@@ -1,14 +1,17 @@
 import { Request, Response } from 'express';
+import Persona from '../models/persona';
 
-export const getPersonas=  (req: Request, res: Response) => {
 
+
+
+export const getPersonas = async (req: Request, res: Response) => {
+    const personas = await Persona.findAll();
     res.json({
         ok: true,
-        msg: 'getPersonas'
+        personas
     });
-
 }
-
+/*
 export const getPersona=  (req: Request, res: Response) => {
 
     res.json({
@@ -45,4 +48,4 @@ export const deletePersona= (req: Request, res: Response) => {
     });
 
 }
-
+*/
