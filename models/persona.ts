@@ -3,7 +3,7 @@ import db from '../db/connection';
 
 const Persona=db.define('Persona', {
     id: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.BIGINT,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
