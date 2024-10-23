@@ -26,11 +26,11 @@ class Server {
       console.log('Connecting to database');
       await db.authenticate();
       console.log('Database authenticated');
-      //await db.sync({});
       console.log('Database synced');
       console.log('Database online');
+      await db.sync({ force: false });
     } catch (error) {
-      throw new Error("Fallo " + error);
+      throw new Error("Error al crear modelos " + error);
     }
   }
 
