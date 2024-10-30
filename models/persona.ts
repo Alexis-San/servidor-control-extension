@@ -21,10 +21,15 @@ const Persona=db.define('Persona', {
         allowNull: false,
         unique:true
     },
+    telefono:{
+        type:DataTypes.STRING,
+        allowNull: false,
+    },
     ci:{
         type:DataTypes.STRING,
         allowNull: false,
     },
+  
         
     //para eliminacion logica
     estado:{
