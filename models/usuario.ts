@@ -22,7 +22,7 @@ const Usuario = db.define('Usuario', {
         allowNull: false
     },
     tipo: {
-        type: DataTypes.ENUM('Admin', 'User'),
+        type: DataTypes.ENUM('Admin', 'director', 'operador'),
         allowNull: false
     }
 });

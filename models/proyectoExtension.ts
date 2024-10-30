@@ -4,7 +4,7 @@ import PeriodoLectivo from './periodoLectivo';
 
 const ProyectoExtension = db.define('ProyectoExtension', {
     id: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.BIGINT,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
@@ -30,20 +30,25 @@ const ProyectoExtension = db.define('ProyectoExtension', {
         allowNull: false,
     },
     fechaInicio: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
     },
     fechaFin: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
     },
     resolucion: {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    //para eliminacion logica
+    estado:{
+        type:DataTypes.BOOLEAN,
+        defaultValue:true
+    },
     // Foreign key for PeriodoLectivo
     periodoLectivoId: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.BIGINT,
         allowNull: false,
         references: {
             model: PeriodoLectivo,

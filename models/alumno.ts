@@ -9,6 +9,10 @@ const Alumno = db.define('Alumno', {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
+    periodoIngreso: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     extensionTotal: {
         type: DataTypes.INTEGER,
         allowNull: true,

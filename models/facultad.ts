@@ -4,7 +4,7 @@ import Persona from './persona';
 
 const Facultad = db.define('Facultad', {
     id: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.BIGINT,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
@@ -17,7 +17,9 @@ const Facultad = db.define('Facultad', {
         type: DataTypes.STRING,
         allowNull: false,
     }
-});
+}, {
+    tableName: 'facultades',
+    timestamps: true,});
 
 // Relaciones
 Facultad.hasMany(Persona, {
