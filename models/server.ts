@@ -2,12 +2,16 @@ import express, { Application } from "express";
 import db from "../db/connection";
 import cors from "cors";
 import * as personaRoutes from "../routes/persona";
-
+import * as periodoLectivoRoutes from "../routes/periodoLectivo";
+import * as proyectoExtensionRoutes from "../routes/proyectoExtension";
 class Server {
   private app: Application;
   private port: string;
   private apiPaths = {
-    personas: '/api/personas'
+    personas: '/api/personas',
+    periodosLectivos: '/api/periodosLectivos',
+    proyectosExtension: '/api/proyectosExtension'
+
   }
 
   constructor() {
@@ -28,7 +32,7 @@ class Server {
       console.log('Database authenticated');
       console.log('Database synced');
       console.log('Database online');
-      await db.sync({ force: false });
+      await db.sync({ force: false }); //force true para borrar la base de datos
     } catch (error) {
       throw new Error("Error al crear modelos " + error);
     }
@@ -45,6 +49,8 @@ class Server {
 
   routes() {
     this.app.use(this.apiPaths.personas, personaRoutes.default);
+    this.app.use(this.apiPaths.periodosLectivos, periodoLectivoRoutes.default);
+    this.app.use(this.apiPaths.proyectosExtension, proyectoExtensionRoutes.default);
   }
 
   listen() {
