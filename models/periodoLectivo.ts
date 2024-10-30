@@ -4,7 +4,7 @@ import Facultad from './facultad';
 
 const PeriodoLectivo = db.define('PeriodoLectivo', {
     id: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.BIGINT,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
@@ -14,15 +14,20 @@ const PeriodoLectivo = db.define('PeriodoLectivo', {
         allowNull: false,
     },
     fechaInicio: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
     },
     fechaFin: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
     },
+    //para eliminacion logica
+    estado:{
+        type:DataTypes.BOOLEAN,
+        defaultValue:true
+    },
     facultadId: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.BIGINT,
         allowNull: false,
         references: {
             model: Facultad,
@@ -30,7 +35,7 @@ const PeriodoLectivo = db.define('PeriodoLectivo', {
         }
     }
 }, {
-    tableName: 'periodos_lectivos',
+    tableName: 'periodosLectivos',
     timestamps: true
 });
 
